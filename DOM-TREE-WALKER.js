@@ -71,19 +71,19 @@ DOMTREE.push(lastNode);
 function setSiblings(node) {
   /**
    * Using the good'ol classical for-loop to keep the support for older browsers.
-   */
+   
   for (let i = 0; i < node.PARENT.CHILDREN.length; i++) {
     node.PARENT.CHILDREN[i].SIBLINGS = node.PARENT.CHILDREN.filter(function (node) {
       return node.NODE !== node.PARENT.CHILDREN[i].NODE;
     });
   }
 
-  /*
+   
   ES6 VERSION:
+  */
   node.PARENT.CHILDREN.forEach((child) => {
     child.SIBLINGS = node.PARENT.CHILDREN.filter((node) => node.NODE !== child.NODE);
   });
-  */
 }
 
 while (true) {
@@ -130,7 +130,6 @@ while (true) {
        * For each iteration, set the siblings of the temporaryNode (on first iteration: lastNode | else: parent of the nodes we loop through)
        */
       setSiblings(temporaryNode);
-
       /**
        * The lastNode is a child in any DOM-group (don't know which yet).
        * We search up the DOM-tree until we find the parent that equals currentNodes sibling.
@@ -142,6 +141,7 @@ while (true) {
         temporaryNode.PARENT.SIBLINGS.push(currentNode);
         currentNode.PARENT = temporaryNode.PARENT.PARENT;
         currentNode.PARENT.CHILDREN.push(currentNode);
+        setSiblings(currentNode);
         break;
       } else {
         /**
@@ -162,4 +162,4 @@ while (true) {
   // DOMTREE.push(currentNode);
 }
 
-//console.log(DOMTREE);
+console.log(DOMTREE);
