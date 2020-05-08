@@ -1,6 +1,8 @@
 ### Virtual DOM-Tree using TreeWalker [0.94kb (944 bytes) minified / 0.67kb (666 bytes) gzipped]
 
-This code creates a virtual DOM-TREE of the whole document using the TreeWalker API.
+This code creates a virtual DOM-TREE of your whole document using the TreeWalker API.
+
+**Support down to IE11**
 
 #### Fast copy:
 
