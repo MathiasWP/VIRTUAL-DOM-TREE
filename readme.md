@@ -9,4 +9,4 @@ const T=document.createTreeWalker(document,NodeFilter.SHOW_ALL,{acceptNode:funct
 ```
 
 
-**Tip:** Copy the code into the console and type in "DOMTREE" for instant demo
+**Tip:** Copy the code into the console and type in "DOMTREE" for instant demo.
