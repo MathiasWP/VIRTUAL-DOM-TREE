@@ -122,7 +122,7 @@ while (true) {
   } else {
     /**
      * If the lastNode was not a sibling or a parent of currentNode, then we know that the lastNode was the last sibling in its group (because the last check was the sibling-check).
-     * Begin looping through the lastNodes parents children to find the sibling of the currentNode.
+     * Begin looping through the lastNodes parent-hierarchy to find the sibling of the currentNode.
      */
     let temporaryNode = lastNode;
 
@@ -138,8 +138,6 @@ while (true) {
        * Lastly we set the parent of currentNode and also add the currentNode to its parent CHILDREN-list.
        */
       if (temporaryNode.PARENT.NODE === currentNode.NODE.previousElementSibling) {
-        currentNode.SIBLINGS.push(temporaryNode.PARENT);
-        temporaryNode.PARENT.SIBLINGS.push(currentNode);
         currentNode.PARENT = temporaryNode.PARENT.PARENT;
         currentNode.PARENT.CHILDREN.push(currentNode);
         setSiblings(currentNode);
